@@ -1,0 +1,16 @@
+import api from "@/services/api";
+
+export const useProduct = {
+  addProduct: async (product) => {
+    const response = await api
+      .post("/products", product)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => console.log(error));
+
+    return response;
+  },
+};
+
+export default useProduct;

@@ -4,6 +4,7 @@ import Login from "@/pages/Login";
 import SignUp from "@/pages/SignUp";
 import ProfilePage from "@/pages/Profile";
 import BuyProduct from "@/pages/BuyProduct";
+import AddProduct from "@/pages/AddProduct";
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: "/profile",
     name: "ProfilePage",
     component: ProfilePage,
+  },
+  {
+    path: "/add-product",
+    name: "AddProduct",
+    component: AddProduct,
   },
   {
     path: "/buy-product/:id",
