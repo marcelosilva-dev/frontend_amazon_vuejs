@@ -5,9 +5,9 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
           <div class="text-center">
-            <nuxt-link to="/">
+            <router-link to="/">
               <img src="../assets/logo-black.png" alt class />
-            </nuxt-link>
+            </router-link>
             <form class="mt-4">
               <div class="a-box a-spacing-extra-large">
                 <div class="a-box-inner">

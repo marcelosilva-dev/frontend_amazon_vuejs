@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import HomePage from "@/pages/Home";
 import Login from "@/pages/Login";
 import SignUp from "@/pages/SignUp";
-import Profile from "@/pages/Profile";
+import ProfilePage from "@/pages/Profile";
 import BuyProduct from "@/pages/BuyProduct";
 
 const routes = [
@@ -23,8 +23,8 @@ const routes = [
   },
   {
     path: "/profile",
-    name: "Profile",
-    component: Profile,
+    name: "ProfilePage",
+    component: ProfilePage,
   },
   {
     path: "/buy-product/:id",
