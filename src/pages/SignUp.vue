@@ -120,6 +120,8 @@ export default {
 
       console.log("result");
       console.log(result);
+
+      this.$router.push({ path: "/login" });
     },
   },
 };

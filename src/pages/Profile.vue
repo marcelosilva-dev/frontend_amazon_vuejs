@@ -31,23 +31,39 @@
               </div>
               <!-- Password Input -->
               <div class="a-spacing-top-medium">
-                <label style="margin-bottom: 0px">Password</label>
+                <label style="margin-bottom: 0px">Phone</label>
                 <input
                   type="text"
                   class="a-input-text"
                   style="width: 100%"
-                  v-model="password"
+                  v-model="phone"
                 />
               </div>
               <!-- Button  -->
-              <div class="a-spacing-top-large">
-                <span class="a-button-register">
-                  <span class="a-button-inner">
-                    <span class="a-button-text" v-on:click="handleUpdateProfile"
-                      >Update profile</span
-                    >
+              <div class="row">
+                <div class="a-spacing-top-large">
+                  <span class="a-button-register">
+                    <span class="a-button-inner">
+                      <span
+                        class="a-button-text"
+                        v-on:click="handleUpdateProfile"
+                        >Update profile</span
+                      >
+                    </span>
                   </span>
-                </span>
+                </div>
+                <!-- Button  -->
+                <div class="a-spacing-top-large">
+                  <span class="a-button-delete">
+                    <span class="a-button-inner">
+                      <span
+                        class="a-button-text"
+                        v-on:click="handleDeleteProfile"
+                        >Delete profile</span
+                      >
+                    </span>
+                  </span>
+                </div>
               </div>
             </form>
             <br />
@@ -59,18 +75,32 @@
 </template>
 
 <script>
+import useUsers from "@/hooks/useUsers.js";
+
 export default {
   name: "ProfilePage",
   data() {
     return {
       name: "",
       email: "",
-      password: "",
+      phone: "",
     };
   },
   methods: {
     async handleUpdateProfile() {
-      //
+      await useUsers.updateUser({
+        id: 3,
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+      });
+
+      this.$router.push({ path: "/" });
+    },
+    async handleDeleteProfile() {
+      await useUsers.deleteUser(3);
+
+      this.$router.push({ path: "/login" });
     },
     async handleLogout() {
       // @Todo fix the logout
@@ -85,6 +115,21 @@ export default {
 main {
   margin-top: 60px;
 }
+.a-button-delete {
+  background: red;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #fff;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  width: 100%;
+}
 .a-button-register {
   background: #f0c14b;
   border-color: #a88734 #9c7e31 #846a29;
@@ -98,6 +143,7 @@ main {
   text-align: center;
   text-decoration: none !important;
   vertical-align: middle;
+  width: 100%;
 }
 .a-button-register .a-button-inner {
   background: #f4d078;
