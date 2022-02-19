@@ -69,8 +69,8 @@
                     <div class="a-row">
                       <b>
                         Already have an account?
-                        <nuxt-link to="/login" class="a-link-emphasis"
-                          >Sign in</nuxt-link
+                        <router-link to="/login" class="a-link-emphasis"
+                          >Sign in</router-link
                         >
                       </b>
                     </div>
@@ -108,6 +108,7 @@ export default {
             REGISTER PAGE
 *****************************************/
 .registerPage {
+  margin-top: 60px;
   margin-bottom: 22px;
   padding: 14px 18px !important;
 }

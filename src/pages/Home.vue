@@ -1,12 +1,18 @@
 <template>
-  <div class="hello">
+  <NavBar />
+  <div class="home">
     <h1>Home</h1>
   </div>
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue";
+
 export default {
   name: "HomePage",
+  components: {
+    NavBar,
+  },
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
@@ -17,8 +23,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.sidebar:hover {
+  color: #e47911;
+}
+@media screen and (max-width: 992px) {
+  .side {
+    display: none;
+  }
 }
 </style>
