@@ -36,6 +36,17 @@
                   </div>
                   <div class="row a-spacing-base">
                     <label for="ap_costumer_name" class="a-form-table"
+                      >Phone</label
+                    >
+                    <input
+                      type="phone"
+                      id="ap_costumer_name"
+                      class="a-input-text form-control auth-autofocus auth-required-field auth-contact-verification-request-info"
+                      v-model="phone"
+                    />
+                  </div>
+                  <div class="row a-spacing-base">
+                    <label for="ap_costumer_name" class="a-form-table"
                       >Password</label
                     >
                     <input
@@ -86,18 +97,29 @@
 </template>
 
 <script>
+import useUsers from "@/hooks/useUsers.js";
+
 export default {
   name: "SignUpPage",
-  layout: "none",
   data() {
     return {
+      name: "",
       email: "",
+      phone: "",
       password: "",
     };
   },
   methods: {
-    async onLogin() {
-      console.log("auth");
+    async onSignup() {
+      const result = await useUsers.createUser({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        password: this.password,
+      });
+
+      console.log("result");
+      console.log(result);
     },
   },
 };
