@@ -11,6 +11,16 @@ export const useProduct = {
 
     return response;
   },
+  getAllProducts: async () => {
+    const response = await api
+      .get("/products")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => console.log(error));
+
+    return response;
+  },
 };
 
 export default useProduct;
