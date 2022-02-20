@@ -98,6 +98,7 @@
 
 <script>
 import useUsers from "@/hooks/useUsers.js";
+import bcrypt from "bcryptjs";
 
 export default {
   name: "SignUpPage",
@@ -111,15 +112,17 @@ export default {
   },
   methods: {
     async onSignup() {
-      const result = await useUsers.createUser({
+      const password = this.password;
+
+      var salt = bcrypt.genSaltSync(10);
+      var hash = bcrypt.hashSync(password, salt);
+
+      await useUsers.createUser({
         name: this.name,
         email: this.email,
         phone: this.phone,
-        password: this.password,
+        password: hash,
       });
-
-      console.log("result");
-      console.log(result);
 
       this.$router.push({ path: "/login" });
     },
