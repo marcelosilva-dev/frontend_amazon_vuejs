@@ -103,8 +103,7 @@ export default {
       this.$router.push({ path: "/login" });
     },
     async handleLogout() {
-      // @Todo fix the logout
-      // await this.$auth.logout();
+      this.$store.dispatch("signOut");
     },
   },
 };

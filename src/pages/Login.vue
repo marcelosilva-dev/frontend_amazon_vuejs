@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import useUsers from "@/hooks/useUsers";
+import useAuth from "@/hooks/useAuth";
 
 export default {
   name: "LoginPage",
@@ -87,10 +87,26 @@ export default {
   },
   methods: {
     async onLogin() {
-      const result = await useUsers.authenticate(this.email, this.password);
+      const body = {
+        email: this.email,
+        password: this.password,
+      };
 
-      if (result == true) {
-        this.$router.push({ path: "/" });
+      const token = await useAuth.validateCredentialsAndGetToken(body);
+      if (token != undefined) {
+        const user = await useAuth.validateCredentialsAndGetUserData(
+          this.email,
+          this.password
+        );
+
+        if (user != undefined) {
+          user.token = token;
+          user.status = true;
+
+          await this.$store.dispatch("signIn", user);
+
+          await this.$router.push({ path: "/" });
+        }
       }
     },
   },

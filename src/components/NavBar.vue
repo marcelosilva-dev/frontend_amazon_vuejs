@@ -93,7 +93,7 @@
                   tabindex="0"
                 >
                   <span class="nav-line-1">Hello,</span>
-                  <span class="nav-line-2">{{ username }}</span>
+                  <span class="nav-line-2">{{ name }}</span>
                 </router-link>
               </template>
               <template v-else>
@@ -140,11 +140,13 @@ export default {
   components: {
     SearchComp,
   },
-  data() {
-    return {
-      loggedIn: false,
-      username: "",
-    };
+  computed: {
+    loggedIn() {
+      return this.$store.state.loggedIn;
+    },
+    name() {
+      return this.$store.state.name;
+    },
   },
 };
 </script>

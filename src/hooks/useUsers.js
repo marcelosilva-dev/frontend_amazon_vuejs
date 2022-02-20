@@ -40,18 +40,6 @@ const useUsers = {
 
     return response;
   },
-  authenticate: async (email, password) => {
-    const response = await api
-      .get(`/users/auth?login=${email}&password=${password}`)
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => console.log(error));
-
-    console.log("response");
-    console.log(response);
-    return response;
-  },
 };
 
 export default useUsers;

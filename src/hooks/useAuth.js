@@ -1,12 +1,26 @@
 import api from "@/services/api";
 
 export const useAuth = {
-  isAuthenticated: async (credentials) => {
+  validateCredentialsAndGetToken: async (credentials) => {
     const response = await api
-      .post("/auth", credentials)
-      .then((response) => (this.info = response.data))
+      .post("/login", credentials)
+      .then((response) => {
+        return response.data;
+      })
       .catch((error) => console.log(error));
 
+    return response;
+  },
+  validateCredentialsAndGetUserData: async (email, password) => {
+    const response = await api
+      .get(`/auth-test?login=${email}&password=${password}`)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => console.log(error));
+
+    console.log("response");
+    console.log(response);
     return response;
   },
 };
