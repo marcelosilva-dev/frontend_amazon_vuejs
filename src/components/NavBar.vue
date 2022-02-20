@@ -85,7 +85,7 @@
                 </span>
               </a>
               <span class="icp-nav-link-border"></span>
-              <!-- <template v-if="$auth.$state.loggedIn">
+              <template v-if="loggedIn">
                 <router-link
                   to="/profile"
                   class="nav-a nav-a-2"
@@ -93,12 +93,12 @@
                   tabindex="0"
                 >
                   <span class="nav-line-1">Hello,</span>
-                  <span class="nav-line-2">{{ $auth.$state.user.name }}</span>
+                  <span class="nav-line-2">{{ username }}</span>
                 </router-link>
-              </template> 
+              </template>
               <template v-else>
                 <router-link
-                  to="/signup"
+                  to="/login"
                   class="nav-a nav-a-2"
                   id="nav-link-accountList"
                   tabindex="0"
@@ -112,7 +112,7 @@
                     ></span>
                   </span>
                 </router-link>
-              </template> -->
+              </template>
               <router-link
                 to="/orders"
                 class="nav-a nav-a-2 nav-single-row-link"
@@ -139,6 +139,12 @@ export default {
   name: "NavBar",
   components: {
     SearchComp,
+  },
+  data() {
+    return {
+      loggedIn: false,
+      username: "",
+    };
   },
 };
 </script>

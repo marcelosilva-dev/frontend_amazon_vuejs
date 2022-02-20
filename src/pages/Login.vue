@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import useUsers from "@/hooks/useUsers";
+
 export default {
   name: "LoginPage",
   data() {
@@ -85,7 +87,11 @@ export default {
   },
   methods: {
     async onLogin() {
-      console.log("auth");
+      const result = await useUsers.authenticate(this.email, this.password);
+
+      if (result == true) {
+        this.$router.push({ path: "/" });
+      }
     },
   },
 };

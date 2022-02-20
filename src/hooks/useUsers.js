@@ -23,7 +23,9 @@ const useUsers = {
   deleteUser: async (id) => {
     const response = await api
       .delete(`/users/${id}`)
-      .then((response) => (this.info = response.data))
+      .then((response) => {
+        return response.data;
+      })
       .catch((error) => console.log(error));
 
     return response;
@@ -31,9 +33,23 @@ const useUsers = {
   updateUser: async (body) => {
     const response = await api
       .put(`/users/${body.id}`, body)
-      .then((response) => (this.info = response.data))
+      .then((response) => {
+        return response.data;
+      })
       .catch((error) => console.log(error));
 
+    return response;
+  },
+  authenticate: async (email, password) => {
+    const response = await api
+      .get(`/users/auth?login=${email}&password=${password}`)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => console.log(error));
+
+    console.log("response");
+    console.log(response);
     return response;
   },
 };
