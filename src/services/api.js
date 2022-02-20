@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:9999",
+  baseURL: "https://api-spring-boot-jpa.herokuapp.com/",
 });
 
 export default api;
