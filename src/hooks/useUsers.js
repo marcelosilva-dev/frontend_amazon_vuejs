@@ -1,11 +1,20 @@
 import api from "@/services/api";
+import useLocalStorage from "./useLocalStorage";
 // import axios from "axios";
 
 const useUsers = {
   getUser: async (id) => {
+    const { token } = await useLocalStorage.getItem("@AmazonVue:store");
+
     const response = await api
-      .get(`/users/${id}`)
-      .then((response) => (this.info = response.data))
+      .get(`/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        return response.data;
+      })
       .catch((error) => console.log(error));
 
     return response;
@@ -31,8 +40,14 @@ const useUsers = {
     return response;
   },
   updateUser: async (body) => {
+    const { id, token } = await useLocalStorage.getItem("@AmazonVue:store");
+
     const response = await api
-      .put(`/users/${body.id}`, body)
+      .put(`/users/${id}`, body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         return response.data;
       })

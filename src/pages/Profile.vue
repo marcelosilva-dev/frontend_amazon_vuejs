@@ -76,34 +76,59 @@
 
 <script>
 import useUsers from "@/hooks/useUsers.js";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 export default {
   name: "ProfilePage",
   data() {
     return {
+      id: 0,
       name: "",
       email: "",
       phone: "",
     };
   },
+  async mounted() {
+    this.id = location.pathname.split("/")[2];
+
+    const user = await useUsers.getUser(location.pathname.split("/")[2]);
+
+    if (user) {
+      this.name = user.name;
+      this.email = user.email;
+      this.phone = user.phone;
+    }
+  },
   methods: {
     async handleUpdateProfile() {
       await useUsers.updateUser({
-        id: 3,
+        id: this.id,
         name: this.name,
         email: this.email,
         phone: this.phone,
       });
 
-      this.$router.push({ path: "/" });
+      const user = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+      };
+
+      this.$store.dispatch("update", user);
+
+      await this.$router.push({ path: "/" });
     },
     async handleDeleteProfile() {
-      await useUsers.deleteUser(3);
+      await useUsers.deleteUser(location.pathname.split("/")[2]);
 
-      this.$router.push({ path: "/login" });
+      await this.$router.push({ path: "/" });
     },
     async handleLogout() {
+      await useLocalStorage.removeItem("@AmazonVue:store");
+
       this.$store.dispatch("signOut");
+
+      await this.$router.push({ path: "/" });
     },
   },
 };

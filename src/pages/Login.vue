@@ -76,6 +76,7 @@
 
 <script>
 import useAuth from "@/hooks/useAuth";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 export default {
   name: "LoginPage",
@@ -104,6 +105,8 @@ export default {
           user.status = true;
 
           await this.$store.dispatch("signIn", user);
+
+          await useLocalStorage.setItem("@AmazonVue:store", user);
 
           await this.$router.push({ path: "/" });
         }

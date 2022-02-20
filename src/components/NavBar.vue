@@ -87,7 +87,7 @@
               <span class="icp-nav-link-border"></span>
               <template v-if="loggedIn">
                 <router-link
-                  to="/profile"
+                  :to="`/profile/${id}`"
                   class="nav-a nav-a-2"
                   id="nav-link-accountList"
                   tabindex="0"
@@ -135,10 +135,21 @@
 
 <script>
 import SearchComp from "@/components/Search.vue";
+import useLocalStorage from "@/hooks/useLocalStorage";
+
 export default {
   name: "NavBar",
   components: {
     SearchComp,
+  },
+  async mounted() {
+    if (!this.$store.state.loggedIn) {
+      const user = await useLocalStorage.getItem("@AmazonVue:store");
+
+      if (user) {
+        await this.$store.dispatch("signIn", user);
+      }
+    }
   },
   computed: {
     loggedIn() {
@@ -146,6 +157,9 @@ export default {
     },
     name() {
       return this.$store.state.name;
+    },
+    id() {
+      return this.$store.state.id;
     },
   },
 };

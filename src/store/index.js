@@ -27,6 +27,11 @@ const store = createStore({
       state.token = "";
       state.loggedIn = false;
     },
+    UPDATE(state, user) {
+      state.name = user.name;
+      state.email = user.email;
+      state.phone = user.phone;
+    },
   },
   actions: {
     signIn({ commit }, user) {
@@ -34,6 +39,9 @@ const store = createStore({
     },
     signOut({ commit }) {
       commit("SIGN_OUT");
+    },
+    update({ commit }, user) {
+      commit("UPDATE", user);
     },
   },
   getters: {
