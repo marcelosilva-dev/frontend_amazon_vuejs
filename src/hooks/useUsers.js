@@ -30,8 +30,14 @@ const useUsers = {
     return response;
   },
   deleteUser: async (id) => {
+    const { token } = await useLocalStorage.getItem("@AmazonVue:store");
+
     const response = await api
-      .delete(`/users/${id}`)
+      .delete(`/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         return response.data;
       })
