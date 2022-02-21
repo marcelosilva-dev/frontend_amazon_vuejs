@@ -122,6 +122,8 @@ export default {
 
       await useLocalStorage.removeItem("@AmazonVue:store");
 
+      this.$store.dispatch("signOut");
+
       await this.$router.push({ path: "/" });
     },
     async handleLogout() {
