@@ -1,6 +1,24 @@
 # frontend_amazon_vuejs
 
-[![Build Status](https://github.com/marcelosilva-dev/frontend_amazon_vuejs)
+## Requisitos
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Para fazer build e executar a aplicação você precisa:
+
+- [NodeJS](https://nodejs.org/en/download/)
+
+## Executando a aplicação localmente
+
+Primeiro instale as dependencias:
+
+```shell
+yarn install
+```
+
+Depois inicie o servidor de desenvolvimento:
+
+```shell
+yarn serve
+```
+### Acessando a aplicação online
+
+- [NodeJS](https://amazon-clone-vuejs.netlify.app/)
