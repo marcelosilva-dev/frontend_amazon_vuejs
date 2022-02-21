@@ -54,13 +54,12 @@
                 </div>
                 <!-- Button  -->
                 <div class="a-spacing-top-large">
-                  <span class="a-button-delete">
+                  <span
+                    class="a-button-delete"
+                    v-on:click="handleDeleteProfile"
+                  >
                     <span class="a-button-inner">
-                      <span
-                        class="a-button-text"
-                        v-on:click="handleDeleteProfile"
-                        >Delete profile</span
-                      >
+                      <span class="a-button-text">Delete profile</span>
                     </span>
                   </span>
                 </div>
