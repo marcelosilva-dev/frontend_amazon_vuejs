@@ -25,20 +25,11 @@ yarn serve
 
 ### Paginas da aplicação
 
-Cadastro de usuários:
-- [/SignUp](https://amazon-clone-vuejs.netlify.app/signup)
-
-Login no sistema:
-- [/Login](https://amazon-clone-vuejs.netlify.app/login)
-
-Home de ofertas:
-- [/Home](https://amazon-clone-vuejs.netlify.app/)
-
-Pagina de produto:
-- [/Pagina do produto](https://amazon-clone-vuejs.netlify.app/buy-product/2)
-
-Pagina do usuário (necessário estar logado):
-- [/Pagina do usuário](https://amazon-clone-vuejs.netlify.app/profile/x)
+- Cadastro de usuários:
+- Login no sistema:
+- Home de ofertas:
+- Pagina de produto:
+- Pagina do usuário (necessário estar logado):
 
 #### Um pouco sobre a aplicação
 
