@@ -119,6 +119,8 @@ export default {
       await this.$router.push({ path: "/" });
     },
     async handleDeleteProfile() {
+      await useLocalStorage.removeItem("@AmazonVue:store");
+
       await useUsers.deleteUser(location.pathname.split("/")[2]);
 
       await this.$router.push({ path: "/" });
