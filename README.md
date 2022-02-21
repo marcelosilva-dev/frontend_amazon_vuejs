@@ -21,7 +21,7 @@ yarn serve
 ```
 ### Acessando a aplicação online
 
-- [Deplay](https://amazon-clone-vuejs.netlify.app/)
+- [Deploy](https://amazon-clone-vuejs.netlify.app/)
 
 ### Paginas da aplicação
 
