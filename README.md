@@ -21,4 +21,39 @@ yarn serve
 ```
 ### Acessando a aplicação online
 
-- [NodeJS](https://amazon-clone-vuejs.netlify.app/)
+- [Deplay](https://amazon-clone-vuejs.netlify.app/)
+
+### Paginas da aplicação
+
+Cadastro de usuários:
+- [/SignUp](https://amazon-clone-vuejs.netlify.app/signup)
+
+Login no sistema:
+- [/Login](https://amazon-clone-vuejs.netlify.app/login)
+
+Home de ofertas:
+- [/Home](https://amazon-clone-vuejs.netlify.app/)
+
+Pagina de produto:
+- [/Pagina do produto](https://amazon-clone-vuejs.netlify.app/buy-product/2)
+
+Pagina do usuário (necessário estar logado):
+- [/Pagina do usuário](https://amazon-clone-vuejs.netlify.app/profile/x)
+
+#### Um pouco sobre a aplicação
+
+- SPA (Single Page Application)
+- Gerenciamento de estado com VueX
+- Totalmente responsiva
+
+##### Em breve
+
+- Geração de ordens de compra
+- Gerenciamento de ordens de compra por usuário
+- Modo admin com cadastro de entradas no estoque
+- Modo gestão do estoque (admin)
+- Metodo de pagamento real
+
+###### Contato
+
+- Siga-me no Linkdin https://www.linkedin.com/in/marcelo-oliveira-pbidev/
